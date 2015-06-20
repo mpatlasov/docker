@@ -108,6 +108,11 @@ func main() {
 	}
 	protoAddrParts := strings.SplitN(flHosts[0], "://", 2)
 
+	if *flProxyDaemon {
+		proxyDaemon(protoAddrParts[0], protoAddrParts[1])
+		return
+	}
+
 	var tlsConfig *tls.Config
 	if *flTls {
 		tlsOptions.InsecureSkipVerify = !*flTlsVerify

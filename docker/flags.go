@@ -86,13 +86,14 @@ func getDaemonConfDir() string {
 }
 
 var (
-	flVersion   = flag.Bool([]string{"v", "-version"}, false, "Print version information and quit")
-	flDaemon    = flag.Bool([]string{"d", "-daemon"}, false, "Enable daemon mode")
-	flDebug     = flag.Bool([]string{"D", "-debug"}, false, "Enable debug mode")
-	flLogLevel  = flag.String([]string{"l", "-log-level"}, "info", "Set the logging level")
-	flTls       = flag.Bool([]string{"-tls"}, false, "Use TLS; implied by --tlsverify")
-	flHelp      = flag.Bool([]string{"h", "-help"}, false, "Print usage")
-	flTlsVerify = flag.Bool([]string{"-tlsverify"}, dockerTlsVerify, "Use TLS and verify the remote")
+	flVersion     = flag.Bool([]string{"v", "-version"}, false, "Print version information and quit")
+	flDaemon      = flag.Bool([]string{"d", "-daemon"}, false, "Enable daemon mode")
+	flProxyDaemon = flag.Bool([]string{"P", "-proxydaemon"}, false, "Enable proxy daemon mode")
+	flDebug       = flag.Bool([]string{"D", "-debug"}, false, "Enable debug mode")
+	flLogLevel    = flag.String([]string{"l", "-log-level"}, "info", "Set the logging level")
+	flTls         = flag.Bool([]string{"-tls"}, false, "Use TLS; implied by --tlsverify")
+	flHelp        = flag.Bool([]string{"h", "-help"}, false, "Print usage")
+	flTlsVerify   = flag.Bool([]string{"-tlsverify"}, dockerTlsVerify, "Use TLS and verify the remote")
 
 	// these are initialized in init() below since their default values depend on dockerCertPath which isn't fully initialized until init() runs
 	tlsOptions tlsconfig.Options

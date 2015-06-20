@@ -213,3 +213,7 @@ func shutdownDaemon(d *daemon.Daemon, timeout time.Duration) {
 		logrus.Error("Force shutdown daemon")
 	}
 }
+
+func proxyDaemon(proto, addr string) {
+	daemon.StartProxyDaemon(daemonCfg, proto, addr)
+}
